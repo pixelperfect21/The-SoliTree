@@ -79,7 +79,7 @@ addLayer("c", {
         },
         31: {
             title: "4 of Hearts",
-            description: "Points are multiplied by the 4th root of themselves.",
+            description: "Card progression is multiplied by the 4th root of itself.",
             cost: new Decimal(3),
             unlocked() {return hasUpgrade('c', 12) && hasUpgrade('c', 21)},
             effect() {
@@ -89,7 +89,7 @@ addLayer("c", {
         },
         32: {
             title: "4 of Spades",
-            description: "Points are multiplied by the 4th root of the previous upgrade.",
+            description: "Card progression is multiplied by the 4th root of the previous upgrade.",
             cost: new Decimal(4),
             unlocked() {return hasUpgrade('c', 13) && hasUpgrade('c', 22) && hasUpgrade('c', 31) && hasMilestone('f', 0)},
             effect() {
@@ -99,7 +99,7 @@ addLayer("c", {
         },
         33: {
             title: "4 of Diamonds",
-            description: "Points are multiplied by the 4th root of the previous upgrade.",
+            description: "Card progression is multiplied by the 4th root of the previous upgrade.",
             cost: new Decimal(5),
             unlocked() {return hasUpgrade('c', 14) && hasUpgrade('c', 23) && hasUpgrade('c', 32) && hasUpgrade('c', 41) && hasMilestone('f', 1)},
             effect() {
@@ -109,7 +109,7 @@ addLayer("c", {
         },
         34: {
             title: "4 of Clovers",
-            description: "Points are multiplied by the 4th root of the previous upgrade.",
+            description: "Card progression is multiplied by the 4th root of the previous upgrade.",
             cost: new Decimal(6),
             unlocked() {return hasUpgrade('c', 24) && hasUpgrade('c', 33) && hasUpgrade('c', 42) && hasUpgrade('c', 51) && hasUpgrade('f', 14)},
             effect() {
@@ -137,7 +137,7 @@ addLayer("c", {
         },
         51: {
             title: "6 of Hearts",
-            description: "The 6th root of your points multiply steel gain.",
+            description: "The 6th root of your card progression multiply steel gain.",
             cost: new Decimal(5),
             unlocked() {return hasUpgrade('c', 14) && hasUpgrade('c', 23) && hasUpgrade('c', 32) && hasUpgrade('c', 41) && hasMilestone('f', 1)},
             effect() {
@@ -214,7 +214,10 @@ addLayer('f', {
         "Copper": {
             content: [
                 ["display-text", "You've reached the end for now..."],
-            ]
+            ],
+            unlocked() {
+                hasMilestone('f', 2)
+            }
         }
     },
     milestones: {
@@ -249,7 +252,7 @@ addLayer('f', {
         },
         13: {
             title: "4 of Steel",
-            description: "The 4th root of your steel multiplies your points in the formula for \"4 of Hearts\".",
+            description: "The 4th root of your steel multiplies your card progression in the formula for \"4 of Hearts\".",
             cost: new Decimal(30000),
             unlocked() {return hasUpgrade('f', 12)},
             effect() {
