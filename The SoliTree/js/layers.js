@@ -216,7 +216,7 @@ addLayer('f', {
                 ["display-text", "You've reached the end for now..."],
             ],
             unlocked() {
-                hasMilestone('f', 2)
+                return hasMilestone('f', 2)
             }
         }
     },
