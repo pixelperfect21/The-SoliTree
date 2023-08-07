@@ -13,14 +13,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "Forge+ Update",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	nope i'm not using this`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -71,11 +69,22 @@ function getPointGen() {
 	if (hasUpgrade('c', 33)) gain = gain.times(upgradeEffect('c', 33))
 	if (hasUpgrade('c', 34)) gain = gain.times(upgradeEffect('c', 34))
 	if (hasUpgrade('c', 61)) gain = gain.times(upgradeEffect('c', 61))
+	if (hasUpgrade('c', 62)) gain = gain.times(upgradeEffect('c', 62))
+	gain = gain.times(new Decimal(2).pow(getBuyableAmount('f', 22)))
+	gain = gain.times(buyableEffect('f', 31).plus(1))
 	return gain     
+}
+function ironAmount() {
+    let iron = new Decimal(1)
+	if (hasUpgrade('f', 31)) iron = iron.plus(upgradeEffect('f', 31)) 
+	if (hasUpgrade('f', 32)) iron = iron.plus(upgradeEffect('f', 32)) 
+	if (hasUpgrade('f', 33)) iron = iron.plus(upgradeEffect('f', 33)) 
+    return iron
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() { return {
+	CopperLimit: new Decimal(10),
 }}
 
 // Display extra things at the top of the page
@@ -104,4 +113,6 @@ function maxTickLength() {
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
 // you can cap their current resources with this.
 function fixOldSave(oldVersion){
+	CopperLimit = new Decimal(0)
+	points = new Decimal(0)
 }
