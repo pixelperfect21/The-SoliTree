@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "Forge+ Update",
+	num: "0.11",
+	name: "The Casino (sort of)",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -72,6 +72,7 @@ function getPointGen() {
 	if (hasUpgrade('c', 62)) gain = gain.times(upgradeEffect('c', 62))
 	gain = gain.times(new Decimal(2).pow(getBuyableAmount('f', 22)))
 	gain = gain.times(buyableEffect('f', 31).plus(1))
+	gain = gain.times(new Decimal(2).pow(player.p.points.plus(1)).plus(1).log10().plus(1))
 	return gain     
 }
 function ironAmount() {
