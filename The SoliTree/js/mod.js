@@ -5,8 +5,8 @@ let modInfo = {
 	pointsName: "card progression",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "",
-	discordLink: "",
+	discordName: "Pixel's Incremental Server",
+	discordLink: "https://discord.gg/5K4DXpGeU2",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
